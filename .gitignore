@@ -1,3 +1,10 @@
+# my stuff
+notes/
+all.txt
+
+# google python stuff
+.google-cookie
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
