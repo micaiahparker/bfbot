@@ -18,3 +18,7 @@ Lyrics:
 
 You can also type !help category for more info on a category.
 ```
+
+## TODO
+
+* add `requirements.txt`
