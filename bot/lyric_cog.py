@@ -3,8 +3,11 @@ from .cog import Cog
 from tswift import Song
 from markovify import NewlineText
 
-with open('all.txt', 'rt') as tmg:
-    text = NewlineText(tmg.read(), state_size=2)
+try:
+    with open('all.txt', 'rt') as tmg:
+        text = NewlineText(tmg.read(), state_size=2)
+except FileNotFoundError:
+    text = None
 
 class Lyrics(Cog):
     @command(aliases=['lyrics', 'lyric'])
@@ -19,4 +22,8 @@ class Lyrics(Cog):
 
     @command(aliases=['sing'])
     async def make_lyric(self):
-        await self.bot.say(text.make_sentence())
+        """Generates Mountain Goats lyrics."""
+        if text:
+            await self.bot.say(text.make_sentence())
+        else:
+            await self.bot.say("No text file found for generation.")
